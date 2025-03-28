@@ -22,17 +22,16 @@ spec:
     spec:
       containers:
       - name: {{ .Values.microservice.name}}
-        image: rslim087/kubernetes-course-grade-submission-api:stateless-v3
+        image: {{ .Values.workload.image }}
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 3000
-          initialDelaySeconds: 15
+            port: {{ .Values.workload.port }}
           periodSeconds: 5
         readinessProbe:
           httpGet:
             path: /readyz
-            port: 3000
+            port: {{ .Values.workload.port }}
           initialDelaySeconds: 10
           periodSeconds: 5
         envFrom:
@@ -42,8 +41,8 @@ spec:
               name: {{ .Values.microservice.name}}-secret
         resources:
           requests:
-            memory: "128Mi"
-            cpu: "128m"
+            memory: {{ .Values.workload.resources.memory }}
+            cpu: {{ .Values.workload.resources.cpu }}
           limits:
             memory: "128Mi"
         ports:
