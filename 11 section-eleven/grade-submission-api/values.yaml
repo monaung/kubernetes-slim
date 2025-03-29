@@ -13,7 +13,7 @@ workload: ##Container specific configuration
 
 env:
   MONGODB_HOST: mongodb
-  MONGODB_PORT: "27017"
+  MONGODB_PORT: '27017'
 
 secrets:
   MONGODB_USER: 'YWRtaW4='

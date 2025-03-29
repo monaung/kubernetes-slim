@@ -44,7 +44,7 @@ spec:
             memory: {{ .Values.workload.resources.memory }}
             cpu: {{ .Values.workload.resources.cpu }}
           limits:
-            memory: "128Mi"
+            memory: {{ .Values.workload.resources.memory }}
         ports:
-          - containerPort: 3000
+          - containerPort: {{ .Values.workload.port }}
 
