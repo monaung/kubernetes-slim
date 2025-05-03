@@ -12,4 +12,4 @@ workload:
   livenessDelay: 15
 
 secrets:
-  MONGODB_URI: 'mongodb://user:password123@mongodb-grade-submission-svc.mongodb.svc.cluster.local:27017/?authSource=grades&replicaSet=rs0'
+  MONGODB_URI: 'mongodb://user:password123@mongodb-grade-submission-svc.mongodb.svc.cluster.local:27017/grades'

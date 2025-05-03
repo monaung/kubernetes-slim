@@ -22,21 +22,15 @@ spec:
 
   # statefulSet:
   #   spec:
-  #     template:
-  #       spec:
-  #         containers:
-  #           - name: mongodb-agent
-  #             image: quay.io/mongodb/mongodb-agent-ubi:12.0.32.7857-1
-
-
-  #     template:
-  #       # Adds a custom volume to the pods
-  #       spec:
-  #         volumes:
-  #           - name: custom-volume
-  #             emptyDir: {}
-  #         containers:
-  #         - name: mongodb-agent
-  #           volumeMounts:
-  #             - name: custom-volume
-  #               mountPath: /my-custom-version/mount-path
+  #       # Name for the service object created by the operator
+  #     serviceName: example-openshift-mongodb-svc
+  #     selector: {}
+  #       # Specifies a size for the data volume different from the default 10Gi
+  #     volumeClaimTemplates:
+  #       - metadata:
+  #           name: data-volume
+  #         spec:
+  #           accessModes: [ "ReadWriteOnce", "ReadWriteMany" ]
+  #           resources:
+  #             requests:
+  #               storage: 50Gi
