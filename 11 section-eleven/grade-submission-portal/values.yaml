@@ -1,0 +1,16 @@
+microservice:
+  name: grade-submission-portal
+  namespace: grade-submission
+  replicas: 1
+
+workload:
+  image: rslim087/kubernetes-course-grade-submission-portal
+  port: 5001
+  resources:
+    memory: "128Mi"
+    cpu: "128m"
+  livenessDelay: 15
+
+data:
+  GRADE_SERVICE_HOST: 'grade-submission-api'
+

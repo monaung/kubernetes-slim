@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: StatefulSet #to get stable name/ip address for each pod which is differnt from replica set
 metadata:
   name: mongodb
   namespace: grade-submission
@@ -27,7 +27,7 @@ spec:
         volumeMounts:
         - name: monodb-persistent-storage
           mountPath: /data/db
-  volumeClaimTemplates:
+  volumeClaimTemplates: # will create separate volume for each replica pod
   - metadata:
       name: monodb-persistent-storage
     spec:

@@ -1,0 +1,11 @@
+useStatefulSet: true
+auth:
+  enabled: false
+
+image:
+  registry: docker.io
+  repository: mongo
+  tag: noble
+
+persistence:
+  mountPath: /data/db
